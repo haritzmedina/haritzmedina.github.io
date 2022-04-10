@@ -17,6 +17,8 @@ const named = require('vinyl-named')
 const sass = require('gulp-dart-sass')
 sass.compiler = require('sass')
 
+const imagemin = require('gulp-imagemin')
+
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 const plumber = require('gulp-plumber')
@@ -61,11 +63,6 @@ function scripts () {
       mode: 'development',
         plugins: [
           new ESLintPlugin(),
-          new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-          }),
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(ENV),
             'process.env.VENDOR': JSON.stringify(args.vendor)
@@ -141,9 +138,9 @@ function lintTest () {
 function html () {
   return src('app/**/*.html')
     .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
-    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
+    //.pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
     .pipe($.if(/\.css$/, $.postcss([cssnano({ safe: true, autoprefixer: false })])))
-    .pipe($.if(/\.html$/, $.htmlmin({
+    /*.pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
       minifyJS: { compress: { drop_console: true } },
@@ -152,13 +149,13 @@ function html () {
       removeEmptyAttributes: true,
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
-    })))
+    })))*/
     .pipe(dest('dist'))
 }
 
 function images () {
   return src('app/images/**/*', { since: lastRun(images) })
-    .pipe($.imagemin())
+    .pipe(imagemin())
     .pipe(dest('dist/images'))
 };
 
@@ -188,7 +185,7 @@ function measureSize () {
 const build = series(
   clean,
   parallel(
-    lint,
+    //lint,
     series(parallel(styles, scripts, modernizr), html),
     images,
     fonts,

@@ -65,7 +65,7 @@ body {
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
+.pageContainer {
   border-bottom: 1px solid #e5e5e5;
   .btn {
     font-size: 21px;
@@ -101,7 +101,7 @@ body {
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  .pageContainer {
     border-bottom: 0;
   }
 }
@@ -113,9 +113,9 @@ body {
   min-height: 90%;
 }
 
-.jumbotron{
+.pageContainer{
   margin-top: 3em;
-  background-color: rgba(75,75,75,0.9);
+  background-color: rgba(75,75,75,0.8);
   color: white;
 }
 
@@ -143,12 +143,12 @@ div.alert-info:before{
   background-size: 100%;
 }
 
-.jumbotron a{
+.pageContainer a{
   color: white;
   text-decoration: underline;
 }
 
-.jumbotron a:hover{
+.pageContainer a:hover{
   color: rgba(200,200,200,1);
   text-underline: gray;
 }

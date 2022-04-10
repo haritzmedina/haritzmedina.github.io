@@ -14,6 +14,11 @@ const gulpWebpack = require('webpack-stream')
 const colors = require('colors')
 const named = require('vinyl-named')
 
+const sass = require('gulp-dart-sass')
+sass.compiler = require('sass')
+
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 const plumber = require('gulp-plumber')
 const args = require('./args')
 const ENV = args.production ? 'production' : 'development'
@@ -31,11 +36,10 @@ function styles () {
   return src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
-    .pipe($.sass.sync({
-      outputStyle: 'expanded',
-      precision: 10,
-      includePaths: ['.']
-    }).on('error', $.sass.logError))
+    .pipe(sass().on('error', function (error) {
+      log(colors.red('Error (' + error.plugin + '): ' + error.message))
+      this.emit('end')
+    }))
     .pipe($.postcss([
       autoprefixer()
     ]))
@@ -55,19 +59,20 @@ function scripts () {
       devtool: args.sourcemaps ? 'inline-source-map' : false,
       watch: args.watch,
       mode: 'development',
-      plugins: [
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify(ENV),
-          'process.env.VENDOR': JSON.stringify(args.vendor)
-        })
-      ],
+        plugins: [
+          new ESLintPlugin(),
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+          }),
+          new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(ENV),
+            'process.env.VENDOR': JSON.stringify(args.vendor)
+          })
+        ],
       module: {
         rules: [{
-          test: /\.js$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-          enforce: 'pre'
-        }, {
           test: /\.js$/,
           loader: 'babel-loader'
         }]
@@ -95,9 +100,10 @@ async function modernizr () {
     })
   })
   const createDir = () => new Promise((resolve, reject) => {
-    mkdirp(`${__dirname}/.tmp/scripts`, err => {
-      if (err) reject(err)
+    mkdirp(`${__dirname}/.tmp/scripts`).then(() => {
       resolve()
+    }).catch(err => {
+      reject(err)
     })
   })
   const generateScript = config => new Promise((resolve, reject) => {

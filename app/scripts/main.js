@@ -1,5 +1,5 @@
 /**
- * Created by Haritz Medina on 09/28/2014. Last update 07/17/2019.
+ * Created by Haritz Medina on 09/28/2014. Last update 01/07/2022.
  */
 
 // Uncomment to enable Bootstrap tooltips
@@ -17,3 +17,11 @@ window.haritzmedina = {}
 window.haritzmedina.controller = new Controller()
 
 window.haritzmedina.controller.initialize()
+
+window.haritzmedina.copyClipboardEventHandler = (element) => {
+  navigator.clipboard.writeText(element.dataset.copy)
+  element.dataset.completed = 'true'
+  setTimeout(() => {
+    element.dataset.completed = ''
+  }, 3000)
+}

@@ -187,3 +187,22 @@
 .websiteButton[data-website="chromeStore"]:hover {
   background-color: rgba(150, 150, 150, 1);
 }
+
+// Copy to clipboard
+.websiteButton[data-website="copyClipboard"]:before {
+  background-image: url('../images/icons/copyClipboard.png');
+}
+
+.websiteButton[data-website="copyClipboard"] {
+  background-color: rgba(60, 60, 60, 1);
+  border-color: rgba(20, 20, 20, 1);
+}
+
+.websiteButton[data-website="copyClipboard"][data-completed="true"] {
+  background-color: rgba(60, 150, 60, 1);
+  border-color: rgba(20, 20, 20, 1);
+}
+
+.websiteButton[data-website="copyClipboard"]:hover {
+  background-color: rgba(150, 150, 150, 1);
+}

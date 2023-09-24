@@ -159,6 +159,11 @@ function images () {
     .pipe(dest('dist/images'))
 };
 
+function assets () {
+  return src('app/assets/**/*', { since: lastRun(assets) })
+    .pipe(dest('dist/assets'))
+};
+
 function fonts () {
   return src('app/fonts/**/*.{eot,svg,ttf,woff,woff2}')
     .pipe($.if(!isProd, dest('.tmp/fonts'), dest('dist/fonts')))
@@ -188,6 +193,7 @@ const build = series(
     //lint,
     series(parallel(styles, scripts, modernizr), html),
     images,
+    assets,
     fonts,
     extras
   ),
@@ -209,6 +215,7 @@ function startAppServer () {
   watch([
     'app/**/*.html',
     'app/images/**/*',
+    'app/assets/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', server.reload)
 

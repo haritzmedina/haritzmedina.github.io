@@ -20,24 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4edaabe3-8f8f-4496-b9f2-0cbd305122a9" name="Default" comment="Updated to">
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/en_GB/aboutme.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/en_GB/aboutme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/en_GB/contributions.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/en_GB/contributions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/en_GB/cookies.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/en_GB/cookies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/en_GB/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/en_GB/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/en_GB/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/en_GB/projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/es_ES/aboutme.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/es_ES/aboutme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/es_ES/contributions.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/es_ES/contributions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/es_ES/cookies.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/es_ES/cookies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/es_ES/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/es_ES/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/es_ES/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/es_ES/projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -113,7 +97,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.serve:test">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -122,17 +106,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -264,6 +237,7 @@
       <workItem from="1603378749372" duration="2394000" />
       <workItem from="1615472416441" duration="627000" />
       <workItem from="1649582441965" duration="12510000" />
+      <workItem from="1649605231756" duration="384000" />
     </task>
     <task id="LOCAL-00001" summary="Updated some projects, added DBusBot, curriculum and fixed some bugs.">
       <created>1505732441264</created>

@@ -7,7 +7,7 @@ haritzmedina.com is my personal website done from scratch and with less dependen
 
 ## Web features
 * Website developed in ES6 javascript
-* Bootstrap 4 look
+* Bootstrap 5 look
 * Content is dynamically loaded
 * Multilingual support
 * Dynamic background images

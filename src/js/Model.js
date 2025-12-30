@@ -44,7 +44,9 @@ export class Model {
       this.view.showContent(html, View.container)
     } catch (error) {
       console.error('Error loading page:', error)
-      this.showErrorMessage('Unable to load webpage section or section does not exist.')
+      this.showErrorMessage(
+        'Unable to load webpage section or section does not exist.'
+      )
     }
   }
 

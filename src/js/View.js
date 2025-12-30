@@ -5,15 +5,21 @@
 export class View {
   constructor() {
     this.calculateBackgroundSize()
-    this.currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))
+    this.currentDir = window.location.pathname.substring(
+      0,
+      window.location.pathname.lastIndexOf('/')
+    )
     this.randomizeBackground()
-    
+
     // Handle window resize for responsive backgrounds
     window.addEventListener('resize', () => this.handleResize())
   }
 
   calculateBackgroundSize() {
-    const maxSize = Math.max(window.screen.availHeight, window.screen.availWidth)
+    const maxSize = Math.max(
+      window.screen.availHeight,
+      window.screen.availWidth
+    )
     if (maxSize <= 720) {
       this.size = 'small'
     } else if (maxSize <= 1080) {
@@ -32,7 +38,8 @@ export class View {
   }
 
   randomizeBackground() {
-    const randomBackground = View.backgrounds[Math.floor(Math.random() * View.backgrounds.length)]
+    const randomBackground =
+      View.backgrounds[Math.floor(Math.random() * View.backgrounds.length)]
     const backgroundUrl = `/images/${this.size}/${randomBackground}`
     document.body.style.backgroundImage = `url('${backgroundUrl}')`
   }

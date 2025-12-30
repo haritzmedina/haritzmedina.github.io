@@ -7,7 +7,9 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "jquery": "^3.7.1",
-    "modernizr": "^3.13.1"
+    "modernizr": "^3.13.1",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.5.6"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
@@ -17,7 +19,7 @@
     "babel-loader": "^9.2.1",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.2",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.4",
     "chai": "^4.5.0",
     "colors": "^1.4.0",
     "cross-env": "^7.0.3",

@@ -10,7 +10,8 @@ This repository is a small static website built with a lightweight client-side M
 - Install: `npm install` (requires Node >=16). `postinstall` will install `node-sass` as needed.
 - Development server / live reload: `npm start` (runs `gulp serve`, default port 9000). Source files in `app/` are watched; webpack writes bundles to `.tmp/scripts` and BrowserSync serves from `.tmp` + `app`.
 - Test server: `npm run serve:test` (sets `NODE_ENV=test` and runs gulp serve specialized for `test/`). Tests are run by opening the served `test/index.html` (mocha specs are in `test/spec/`).
-- Production build: `npm run build` (sets `NODE_ENV=production` and runs the `build` pipeline producing `dist/`).
+- Production build: `npm run build` (sets `NODE_ENV=production` and runs the `build` pipeline producing `dist/`, then automatically publishes to `docs/` for GitHub Pages via the `publish` gulp task).
+- Publish only (if needed): `gulp publish` (copies files from `dist/` to `docs/` without rebuilding). This is normally run automatically as part of `npm run build`.
 
 ### Project-specific conventions and patterns
 - Entry points: `app/scripts/*.js` are webpack entry files. Modules under `app/scripts/lib/` use `module.exports` / `require()` conventions.
@@ -28,6 +29,14 @@ This repository is a small static website built with a lightweight client-side M
 - Add a new static page: create `app/templates/{en_GB,es_ES}/yourpage.html` and add a mapping key in `Model.pages` (in `app/scripts/lib/Model.js`).
 - Add images: put them under `app/images/{small,medium,big}/` and reference by filename; `View` will select size automatically.
 - Add JS behavior: create/modify modules under `app/scripts/lib/` and require them from an entry in `app/scripts/*.js`. Re-run `npm start` to verify live updates.
+- Add assets (PDFs, documents, etc.): place them in `app/assets/` and reference them as `/assets/filename` in templates. The build process automatically copies them to `dist/assets/` and the publish task copies them to `docs/assets/` for GitHub Pages.
+
+### Deployment workflow
+- Edit source files in `app/` (templates, styles, scripts, assets).
+- Test locally with `npm start`.
+- Run `npm run build` to create a production build and automatically publish to `docs/`.
+- Commit and push changes to GitHub. The `docs/` folder is configured as the source for GitHub Pages, so changes appear live immediately.
+- The `publish` gulp task (defined in `gulpfile.js`) copies all files from `dist/` to `docs/` during the build. Do not edit files directly in `docs/` — always edit source files in `app/` and rebuild.
 
 ### Debugging tips
 - To reproduce the dev environment exactly: run `NODE_ENV=development npm start` (Windows: use `cross-env` via npm script `start`).

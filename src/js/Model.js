@@ -17,7 +17,8 @@ export class Model {
     }
     this.languages = {
       es_ES: 'es_ES',
-      en_GB: 'en_GB'
+      en_GB: 'en_GB',
+      eu_ES: 'eu_ES'
     }
     this.loadingTimeoutMs = 5000
   }

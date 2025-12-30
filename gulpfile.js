@@ -187,6 +187,11 @@ function measureSize () {
     .pipe($.size({ title: 'build', gzip: true }))
 }
 
+function publish () {
+  return src('dist/**/*', { dot: true })
+    .pipe(dest('docs'))
+}
+
 const build = series(
   clean,
   parallel(
@@ -197,7 +202,8 @@ const build = series(
     fonts,
     extras
   ),
-  measureSize
+  measureSize,
+  publish
 )
 
 function startAppServer () {
@@ -268,4 +274,5 @@ if (isDev) {
 
 exports.serve = serve
 exports.build = build
+exports.publish = publish
 exports.default = build

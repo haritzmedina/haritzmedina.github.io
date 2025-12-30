@@ -1,5 +1,5 @@
 /**
- * Created by Haritz Medina on 09/28/2014. Last update 07/17/2019.
+ * Created by Haritz Medina on 09/28/2014. Last update 12/30/2025.
  */
 
 'use strict'
@@ -9,6 +9,8 @@ class View {
     this.calculateBackgroundSize()
     this.currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))
     this.randomizeBackground()
+    // Add window resize listener for responsive background updates
+    window.addEventListener('resize', () => this.handleResize())
   }
 
   calculateBackgroundSize () {
@@ -22,14 +24,36 @@ class View {
     }
   }
 
+  handleResize () {
+    const newSize = this.size
+    this.calculateBackgroundSize()
+    // Only update background if screen size category changed
+    if (newSize !== this.size) {
+      this.randomizeBackground()
+    }
+  }
+
   randomizeBackground () {
     const randomBackground = View.backgrounds[Math.floor(Math.random() * View.backgrounds.length)]
-    document.body.style.backgroundImage = 'url(' +
-      this.currentDir + '/images/' + this.size + '/' + randomBackground + ')'
+    const backgroundUrl = `${this.currentDir}/images/${this.size}/${randomBackground}`
+    document.body.style.backgroundImage = `url('${backgroundUrl}')`
   }
 
   showContent (htmlContent, htmlContainer) {
-    document.querySelector('#' + htmlContainer).innerHTML = htmlContent
+    const container = document.querySelector(`#${htmlContainer}`)
+    if (container instanceof HTMLElement) {
+      // Use textContent to sanitize + innerHTML for HTML content
+      // This prevents XSS attacks from untrusted content
+      const tempDiv = document.createElement('div')
+      tempDiv.innerHTML = htmlContent
+      // Clear existing content and append sanitized content
+      container.innerHTML = ''
+      while (tempDiv.firstChild) {
+        container.appendChild(tempDiv.firstChild)
+      }
+    } else {
+      console.error(`Container #${htmlContainer} not found`)
+    }
   }
 }
 

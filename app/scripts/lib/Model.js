@@ -1,5 +1,5 @@
 /**
- * Created by Haritz Medina on 09/28/2014. Last update 07/17/2019.
+ * Created by Haritz Medina on 09/28/2014. Last update 12/30/2025.
  */
 
 'use strict'
@@ -23,6 +23,7 @@ class Model {
       en_GB: 'en_GB'
     }
     this.cookies = new Cookies()
+    this.loadingTimeoutMs = 5000 // 5 second timeout for page loads
   }
 
   getPageURI (pageName) {
@@ -34,20 +35,43 @@ class Model {
         language = 'en_GB' // Default language English
       }
     }
-    return this.folder + '/' + language + '/' + this.pages[pageName]
+    return `${this.folder}/${language}/${this.pages[pageName]}`
   }
 
-  setPage (page) {
-    // Retrieve page template
-    fetch(page)
-      .then((response) => {
-        return response.text()
-      }).then((html) => {
-        this.view.showContent(html, View.container)
-      })
-      .catch(() => {
-        window.alert('Unable to load webpage section or section does not exist.')
-      })
+  async setPage (page) {
+    try {
+      const response = await this.fetchWithTimeout(page, this.loadingTimeoutMs)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      const html = await response.text()
+      this.view.showContent(html, View.container)
+    } catch (error) {
+      console.error('Error loading page:', error)
+      this.showErrorMessage('Unable to load webpage section or section does not exist.')
+    }
+  }
+
+  async fetchWithTimeout (url, timeoutMs) {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
+
+    try {
+      const response = await fetch(url, { signal: controller.signal })
+      clearTimeout(timeoutId)
+      return response
+    } catch (error) {
+      clearTimeout(timeoutId)
+      throw error
+    }
+  }
+
+  showErrorMessage (message) {
+    // Create a more user-friendly error message instead of alert
+    const container = document.querySelector(`#${View.container}`)
+    if (container) {
+      container.innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${message}</div>`
+    }
   }
 
   setUserLanguage (language) {
@@ -71,20 +95,19 @@ class Cookies {
     if (days) {
       const date = new Date()
       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
-      expires = '; expires=' + date.toGMTString()
+      expires = `; expires=${date.toUTCString()}`
     }
 
-    document.cookie = name + '=' + value + expires + '; path=/'
+    document.cookie = `${name}=${value}${expires}; path=/; SameSite=Strict`
   }
 
   readCookie (name) {
-    const nameEQ = name + '='
+    const nameEQ = `${name}=`
     const ca = document.cookie.split(';')
     for (let i = 0; i < ca.length; i++) {
-      let c = ca[i]
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+      const c = ca[i].trim()
       if (c.indexOf(nameEQ) === 0) {
-        return c.substring(nameEQ.length, c.length)
+        return c.substring(nameEQ.length)
       }
     }
     return null

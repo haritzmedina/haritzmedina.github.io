@@ -1,8 +1,8 @@
-// Bootstrap imports
-@import 'bootstrap/scss/bootstrap';
+// Bootstrap imports (modern @use)
+@use 'bootstrap/scss/bootstrap';
 
 // Custom styles
-@import './socialButtons';
-@import './layout';
-@import './typography';
-@import './utilities';
+@use './socialButtons';
+@use './layout';
+@use './typography';
+@use './utilities';

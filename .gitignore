@@ -4,6 +4,13 @@ bower_components
 
 # compiled output
 /.tmp
+dist
+
+# Test results
+test-results/
+playwright-report/
+playwright/.cache/
+.lighthouseci/
 
 # System Files
 .DS_Store

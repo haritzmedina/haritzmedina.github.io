@@ -1,79 +1,33 @@
 {
-  "version": "0.2.1",
+  "version": "0.3.0",
+  "description": "Haritz Medina - Personal Website",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
-    "jquery": "^3.7.1",
-    "modernizr": "^3.13.1",
-    "node-sass": "^9.0.0",
-    "postcss": "^8.5.6"
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "autoprefixer": "^10.4.23",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^9.2.1",
-    "babel-plugin-transform-es2015-modules-strip": "^0.1.2",
-    "babel-plugin-transform-es3-property-literals": "^6.22.0",
-    "browser-sync": "^3.0.4",
-    "chai": "^4.5.0",
-    "colors": "^1.4.0",
-    "cross-env": "^7.0.3",
-    "cssnano": "^5.1.15",
-    "del": "^6.1.1",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^8.10.2",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-config-xo": "^0.40.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-mocha": "^10.5.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.2.5",
-    "eslint-plugin-promise": "^6.6.0",
-    "eslint-plugin-standard": "^4.1.0",
-    "eslint-webpack-plugin": "^3.2.0",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-cli": "^2.3.0",
-    "gulp-dart-sass": "^1.1.0",
-    "gulp-eslint": "^6.0.0",
-    "gulp-filter": "^7.0.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-load-plugins": "^2.0.8",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-size": "^4.0.1",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^5.0.0",
-    "mkdirp": "^1.0.4",
-    "mocha": "^9.2.2",
-    "sass": "^1.97.1",
-    "set-value": "^4.1.0",
-    "uglify-es-webpack-plugin": "^0.10.0",
-    "vinyl-named": "^1.1.0",
-    "webpack": "^5.104.1",
-    "webpack-stream": "^7.0.0",
-    "yargs": "^17.4.1"
+    "cssnano": "^7.1.2",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
+    "sass": "^1.77.8",
+    "vite": "^6.0.5"
   },
   "scripts": {
-    "serve:test": "cross-env NODE_ENV=test gulp serve",
-    "serve:dist": "cross-env NODE_ENV=production gulp serve",
-    "start": "gulp serve",
-    "build": "cross-env NODE_ENV=production gulp",
-    "test": "npm run serve:test",
-    "tasks": "gulp --tasks",
-    "clean": "rm -rf node_modules",
-    "reinstall": "npm run clean && npm install",
-    "rebuild": "npm run clean && npm install && npm run build",
-    "postinstall": "npm install node-sass"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write src"
   },
   "browserslist": [
     "> 1%",
@@ -82,19 +36,30 @@
   ],
   "eslintConfig": {
     "parserOptions": {
+      "ecmaVersion": 2024,
       "sourceType": "module"
     },
     "env": {
       "es6": true,
-      "node": true,
-      "browser": true,
-      "jquery": true
+      "browser": true
     },
+    "extends": [
+      "prettier"
+    ],
     "rules": {
       "quotes": [
         2,
         "single"
+      ],
+      "semi": [
+        2,
+        "never"
       ]
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }

@@ -1,0 +1,224 @@
+/* Social icons */
+
+.websiteButton {
+  display: inline-block;
+  height: 32px;
+  width: 48px;
+  border-color: black;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.websiteButton:before {
+  background-size: 67% 100%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Youtube */
+.websiteButton[data-website='youtube']:before {
+  background-image: url('/images/icons/youtube.svg');
+}
+
+.websiteButton[data-website='youtube'] {
+  background-color: rgba(100, 90, 90, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='youtube']:hover {
+  background-color: rgba(220, 160, 160, 1);
+}
+
+/* Github */
+.websiteButton[data-website='github']:before {
+  background-image: url('/images/icons/github.svg');
+}
+
+.websiteButton[data-website='github'] {
+  background-color: rgba(68, 68, 68, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='github']:hover {
+  background-color: rgba(102, 102, 102, 1);
+}
+
+/* NPM */
+.websiteButton[data-website='npm']:before {
+  background-image: url('/images/icons/npm.png');
+}
+
+.websiteButton[data-website='npm'] {
+  background-color: rgba(100, 60, 60, 1);
+  border-color: rgba(150, 60, 60, 1);
+}
+
+.websiteButton[data-website='npm']:hover {
+  background-color: rgba(220, 60, 60, 1);
+}
+
+/* LinkedIn */
+.websiteButton[data-website='linkedin']:before {
+  background-image: url('/images/icons/linkedin.svg');
+}
+
+.websiteButton[data-website='linkedin'] {
+  background-color: rgba(0, 119, 181, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='linkedin']:hover {
+  background-color: rgba(0, 150, 220, 1);
+}
+
+/* PDF */
+.websiteButton[data-website='pdf']:before {
+  background-image: url('/images/icons/pdf.png');
+}
+
+.websiteButton[data-website='pdf'] {
+  background-color: rgba(200, 0, 0, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='pdf']:hover {
+  background-color: rgba(255, 100, 100, 1);
+}
+
+/* PowerPoint */
+.websiteButton[data-website='powerpoint']:before {
+  background-image: url('/images/icons/powerpoint.png');
+}
+
+.websiteButton[data-website='powerpoint'] {
+  background-color: rgba(192, 0, 0, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='powerpoint']:hover {
+  background-color: rgba(255, 120, 120, 1);
+}
+
+/* Webpage */
+.websiteButton[data-website='webpage']:before {
+  background-image: url('/images/icons/web.png');
+}
+
+.websiteButton[data-website='webpage'] {
+  background-color: rgba(0, 100, 200, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='webpage']:hover {
+  background-color: rgba(100, 150, 255, 1);
+}
+
+/* Slack */
+.websiteButton[data-website='slack']:before {
+  background-image: url('/images/icons/slack.png');
+}
+
+.websiteButton[data-website='slack'] {
+  background-color: rgba(74, 21, 75, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='slack']:hover {
+  background-color: rgba(150, 100, 150, 1);
+}
+
+/* Telegram */
+.websiteButton[data-website='telegram']:before {
+  background-image: url('/images/icons/telegram.png');
+}
+
+.websiteButton[data-website='telegram'] {
+  background-color: rgba(0, 136, 204, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='telegram']:hover {
+  background-color: rgba(100, 180, 220, 1);
+}
+
+/* Twitter */
+.websiteButton[data-website='twitter']:before {
+  background-image: url('/images/icons/twitter.svg');
+}
+
+.websiteButton[data-website='twitter'] {
+  background-color: rgba(26, 183, 234, 1);
+  border-color: rgba(15, 150, 200, 1);
+}
+
+.websiteButton[data-website='twitter']:hover {
+  background-color: rgba(15, 150, 200, 1);
+}
+
+/* Email */
+.websiteButton[data-website='email']:before {
+  background-image: url('/images/icons/email.png');
+}
+
+.websiteButton[data-website='email'] {
+  background-color: rgba(160, 160, 160, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='email']:hover {
+  background-color: rgba(220, 220, 220, 1);
+}
+
+/* Orcid */
+.websiteButton[data-website='orcid']:before {
+  background-image: url('/images/icons/orcid.png');
+}
+
+.websiteButton[data-website='orcid'] {
+  background-color: rgba(50, 90, 50, 1);
+  border-color: rgba(80, 120, 80, 1);
+}
+
+.websiteButton[data-website='orcid']:hover {
+  background-color: rgba(80, 110, 80, 1);
+}
+
+/* Chrome Store */
+.websiteButton[data-website='chromeStore']:before {
+  background-image: url('/images/icons/chromeStore.png');
+}
+
+.websiteButton[data-website='chromeStore'] {
+  background-color: rgba(52, 147, 235, 1);
+  border-color: black;
+}
+
+.websiteButton[data-website='chromeStore']:hover {
+  background-color: rgba(120, 180, 255, 1);
+}
+
+/* Copy Clipboard */
+.websiteButton[data-website='copyClipboard']:before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>');
+}
+
+.websiteButton[data-website='copyClipboard'] {
+  background-color: rgba(100, 100, 100, 1);
+  border-color: black;
+  cursor: pointer;
+}
+
+.websiteButton[data-website='copyClipboard']:hover {
+  background-color: rgba(150, 150, 150, 1);
+}
+
+.websiteSourceCodeButton {
+  font-size: 1rem;
+}

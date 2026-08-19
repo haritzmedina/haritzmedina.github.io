@@ -8,7 +8,7 @@
   min-width: 44px;
   width: 44px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(8px);
@@ -18,17 +18,19 @@
     border-color var(--duration-fast) ease,
     transform var(--duration-fast) var(--ease-out-expo),
     box-shadow var(--duration-fast) ease;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.14);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
   position: relative;
   overflow: hidden;
 
   &:hover {
     transform: translateY(-1px);
     background: rgba(255, 255, 255, 0.11);
-    border-color: rgba(255,255,255,0.16);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
   }
-  &:active { transform: translateY(0); }
+  &:active {
+    transform: translateY(0);
+  }
 
   &:focus-visible {
     outline: 2px solid var(--color-accent);
@@ -45,10 +47,16 @@
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.96;
-  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease, filter var(--duration-fast) ease;
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease,
+    filter var(--duration-fast) ease;
 }
 
-.websiteButton:hover:before { opacity: 1; transform: scale(1.06); }
+.websiteButton:hover:before {
+  opacity: 1;
+  transform: scale(1.06);
+}
 
 /* Icon mapping - mantener compatibilidad con data-website existente */
 
@@ -119,15 +127,38 @@
 }
 
 /* Colores sutiles al hover por tipo — solo tinte de fondo, no recarga visual */
-.websiteButton[data-website='github']:hover { background: rgba(255,255,255,0.13); }
-.websiteButton[data-website='linkedin']:hover { background: rgba(0,119,181,0.28); border-color: rgba(0,119,181,0.45); }
-.websiteButton[data-website='twitter']:hover { background: rgba(29,161,242,0.28); border-color: rgba(29,161,242,0.4); }
-.websiteButton[data-website='youtube']:hover { background: rgba(255,0,0,0.22); border-color: rgba(255,0,0,0.35); }
-.websiteButton[data-website='npm']:hover { background: rgba(203,56,55,0.24); border-color: rgba(203,56,55,0.4); }
-.websiteButton[data-website='webpage']:hover { background: rgba(110,168,254,0.22); border-color: rgba(110,168,254,0.4); }
-.websiteButton[data-website='pdf']:hover { background: rgba(220,38,38,0.24); }
-.websiteButton[data-website='powerpoint']:hover { background: rgba(185,28,28,0.24); }
-.websiteButton[data-website='telegram']:hover { background: rgba(0,136,204,0.24); }
+.websiteButton[data-website='github']:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+.websiteButton[data-website='linkedin']:hover {
+  background: rgba(0, 119, 181, 0.28);
+  border-color: rgba(0, 119, 181, 0.45);
+}
+.websiteButton[data-website='twitter']:hover {
+  background: rgba(29, 161, 242, 0.28);
+  border-color: rgba(29, 161, 242, 0.4);
+}
+.websiteButton[data-website='youtube']:hover {
+  background: rgba(255, 0, 0, 0.22);
+  border-color: rgba(255, 0, 0, 0.35);
+}
+.websiteButton[data-website='npm']:hover {
+  background: rgba(203, 56, 55, 0.24);
+  border-color: rgba(203, 56, 55, 0.4);
+}
+.websiteButton[data-website='webpage']:hover {
+  background: rgba(110, 168, 254, 0.22);
+  border-color: rgba(110, 168, 254, 0.4);
+}
+.websiteButton[data-website='pdf']:hover {
+  background: rgba(220, 38, 38, 0.24);
+}
+.websiteButton[data-website='powerpoint']:hover {
+  background: rgba(185, 28, 28, 0.24);
+}
+.websiteButton[data-website='telegram']:hover {
+  background: rgba(0, 136, 204, 0.24);
+}
 
 /* Grupo de botones dentro de cards / aboutme */
 .card .websiteButton,

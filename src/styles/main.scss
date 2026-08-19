@@ -1,8 +1,11 @@
-// Bootstrap imports (modern @use)
-@use 'bootstrap/scss/bootstrap';
+// Design tokens primero
+@use './variables';
+
+// Bootstrap purgado — solo componentes usados
+@use './bootstrap-custom';
 
 // Custom styles
-@use './socialButtons';
-@use './layout';
 @use './typography';
+@use './layout';
+@use './socialButtons';
 @use './utilities';

@@ -26,7 +26,14 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler'
+          api: 'modern-compiler',
+          quietDeps: true,
+          silenceDeprecations: [
+            'import',
+            'color-functions',
+            'global-builtin',
+            'if-function'
+          ]
         }
       }
     },

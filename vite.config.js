@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       emptyOutDir: true,
-      minify: 'terser',
+      minify: 'esbuild',
       sourcemap: false,
       rollupOptions: {
         output: {

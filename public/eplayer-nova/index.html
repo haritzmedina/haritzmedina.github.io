@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EPlayer Nova - Modern Cross-Platform Music Player</title>
+    <meta name="description" content="EPlayer Nova is an open-source, modern cross-platform music player for Android, Windows, and Linux featuring advanced audio visualizers and Google Drive cloud synchronization.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://haritzmedina.com/eplayer-nova/">
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #0f1115;
+        --card-bg: #181b22;
+        --card-border: #262a34;
+        --text-primary: #f0f3f8;
+        --text-secondary: #9da7b8;
+        --accent: #6ea8fe;
+        --accent-hover: #8bb9fe;
+        --accent-glow: rgba(110, 168, 254, 0.15);
+        --badge-bg: rgba(110, 168, 254, 0.12);
+        --badge-border: rgba(110, 168, 254, 0.3);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        border-bottom: 1px solid var(--card-border);
+        background: rgba(15, 17, 21, 0.85);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+      .brand img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+      }
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+      }
+      .nav-btn {
+        background: var(--accent);
+        color: #0b111e;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+      .nav-btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+      main {
+        flex: 1;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        width: 100%;
+      }
+      .hero {
+        text-align: center;
+        padding: 2.5rem 1rem 4rem;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--badge-bg);
+        border: 1px solid var(--badge-border);
+        color: var(--accent);
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      .hero-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 22px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+      }
+      h1 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ffffff 30%, #a5c7fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 680px;
+        margin: 0 auto 2rem;
+      }
+      .hero-meta {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #0b111e;
+      }
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        box-shadow: 0 4px 16px var(--accent-glow);
+      }
+      .btn-secondary {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-primary);
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 1.75rem;
+        transition: transform 0.2s, border-color 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(110, 168, 254, 0.4);
+      }
+      .card-icon {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+      .card h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+      }
+      .card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .highlight-section {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin: 3.5rem 0;
+      }
+      .highlight-section h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .highlight-section p {
+        color: var(--text-secondary);
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+      }
+      .highlight-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .highlight-list li {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 1rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .highlight-list li strong {
+        color: var(--text-primary);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      footer {
+        border-top: 1px solid var(--card-border);
+        background: var(--bg-color);
+        padding: 2.5rem 1.5rem;
+        margin-top: auto;
+      }
+      .footer-container {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        h1 { font-size: 2.1rem; }
+        .hero-subtitle { font-size: 1.05rem; }
+        .hero { padding: 1.5rem 0.5rem 2.5rem; }
+        .highlight-section { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a href="./" class="brand">
+          <img src="./icon.png" alt="EPlayer Nova Logo">
+          <span>EPlayer Nova</span>
+        </a>
+        <nav class="nav-links">
+          <a href="./privacy.html" class="nav-link">Privacy Policy</a>
+          <a href="https://haritzmedina.com/" class="nav-link">Developer</a>
+          <a href="./privacy.html" class="nav-btn">Privacy &amp; Terms</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-badge">Official Application Portal</div>
+        <div>
+          <img src="./icon.png" alt="EPlayer Nova Application Icon" class="hero-icon">
+        </div>
+        <h1>EPlayer Nova</h1>
+        <p class="hero-subtitle">
+          A modern, high-performance, cross-platform audio player engineered with Flutter, GLSL shader visualizers, and secure Google Drive personal cloud synchronization.
+        </p>
+        <div class="hero-meta">
+          <span><strong>Developer:</strong> Haritz Medina</span>
+          <span>&bull;</span>
+          <span><strong>Platforms:</strong> Android, Windows, Linux, Wear OS</span>
+          <span>&bull;</span>
+          <span><strong>License:</strong> Open Source (GPLv3)</span>
+        </div>
+        <div class="hero-actions">
+          <a href="./privacy.html" class="btn btn-primary">Read Privacy Policy</a>
+          <a href="https://github.com/haritzmedina/EPlayerNova" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="https://haritzmedina.com/" class="btn btn-secondary">About Developer</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="card-icon">🎵</div>
+          <h2>Clean Audio Engine</h2>
+          <p>
+            Native audio playback with low latency, seamless gapless transition support, media session integration (Windows SMTC, Android MediaSession), and adaptive dynamic queues.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h2>9 Reactive Visualizers</h2>
+          <p>
+            Real-time audio reactive rendering powered by custom GLSL fragment shaders (Black Hole Bass, Procedural World) and hardware-accelerated 2D canvas spectrums.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎤</div>
+          <h2>Synchronized LRC Lyrics</h2>
+          <p>
+            Integrated LRC parser with karaoke-style autoscroll, timing offsets, and automatic lyrics resolution via LRCLIB for tracks lacking embedded lyrics.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <h2>Google Drive Sync</h2>
+          <p>
+            Bi-directional synchronization of playlists, favorites, play counts, and recently played history across all your personal devices using Google Drive App Data.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h2>Privacy First Design</h2>
+          <p>
+            No user tracking, no advertisements, and no analytics SDKs. Your local audio files and metadata remain strictly on your own hardware and private cloud.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⌚</div>
+          <h2>Wear OS Companion</h2>
+          <p>
+            Standalone offline playback on your smartwatch, with local Bluetooth headphone routing and phone-to-watch synchronization.
+          </p>
+        </div>
+      </section>
+
+      <section class="highlight-section">
+        <h2><span>☁️</span> Google Drive Cloud Synchronization</h2>
+        <p>
+          EPlayer Nova provides optional personal cloud backup and multi-device synchronization powered by Google Drive. When enabled by the user, the app synchronizes your musical organization across Android and desktop devices.
+        </p>
+        <p>
+          Your privacy is our foremost priority. Here is how EPlayer Nova uses Google Drive:
+        </p>
+        <ul class="highlight-list">
+          <li>
+            <strong>Isolated App Data Storage</strong>
+            Sync files are stored exclusively in your Google Drive Application Data folder (<code>spaces=appDataFolder</code>), hidden from third parties and not mixed with your documents.
+          </li>
+          <li>
+            <strong>Strict Scope Boundaries</strong>
+            The app only requests <code>drive.appdata</code> and <code>drive.file</code>. It cannot view, modify, or access any other files in your Google Drive.
+          </li>
+          <li>
+            <strong>No Data Sharing</strong>
+            Your metadata is never sent to any developer-owned or third-party servers. Data flows strictly between your device and Google's official Drive API.
+          </li>
+          <li>
+            <strong>User Controlled</strong>
+            You can disconnect Google Drive and revoke permissions at any moment directly from the application settings or your Google Account security page.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div>
+          &copy; 2026 <strong>EPlayer Nova</strong> &bull; Developed by <a href="https://haritzmedina.com/" style="color:var(--text-primary); text-decoration:none;">Haritz Medina</a>
+        </div>
+        <div class="footer-links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="https://github.com/haritzmedina/EPlayerNova" target="_blank" rel="noopener">Source Code</a>
+          <a href="mailto:haritzmedina@gmail.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

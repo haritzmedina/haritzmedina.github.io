@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy - EPlayer Nova</title>
+    <meta name="description" content="Privacy Policy for EPlayer Nova, detailing data collection, Google Drive integration, and security practices.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://haritzmedina.com/eplayer-nova/privacy.html">
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #0f1115;
+        --card-bg: #181b22;
+        --card-border: #262a34;
+        --text-primary: #f0f3f8;
+        --text-secondary: #9da7b8;
+        --accent: #6ea8fe;
+        --accent-hover: #8bb9fe;
+        --accent-glow: rgba(110, 168, 254, 0.15);
+        --callout-bg: rgba(110, 168, 254, 0.08);
+        --callout-border: rgba(110, 168, 254, 0.35);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+        line-height: 1.7;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        border-bottom: 1px solid var(--card-border);
+        background: rgba(15, 17, 21, 0.85);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
+      .brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+      }
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+      }
+      main {
+        flex: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 5rem;
+        width: 100%;
+      }
+      .policy-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+      .policy-badge {
+        display: inline-block;
+        background: rgba(110, 168, 254, 0.12);
+        border: 1px solid rgba(110, 168, 254, 0.3);
+        color: var(--accent);
+        padding: 0.3rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+      }
+      .meta-info {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      section {
+        margin-bottom: 2.5rem;
+      }
+      h2 {
+        font-size: 1.45rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        border-left: 3px solid var(--accent);
+        padding-left: 0.75rem;
+      }
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+      p {
+        margin-bottom: 1rem;
+        color: #d1d7e0;
+      }
+      ul, ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1.25rem;
+        color: #d1d7e0;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      strong {
+        color: var(--text-primary);
+      }
+      a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      a:hover {
+        color: var(--accent-hover);
+      }
+      .callout {
+        background: var(--callout-bg);
+        border: 1px solid var(--callout-border);
+        border-radius: 10px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .callout strong {
+        color: var(--accent);
+      }
+      .callout-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      code {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9em;
+        color: #e2e8f0;
+      }
+      footer {
+        border-top: 1px solid var(--card-border);
+        background: var(--bg-color);
+        padding: 2.5rem 1.5rem;
+        margin-top: auto;
+      }
+      .footer-container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a href="./" class="brand">
+          <img src="./icon.png" alt="EPlayer Nova Logo">
+          <span>EPlayer Nova</span>
+        </a>
+        <nav class="nav-links">
+          <a href="./" class="nav-link">Application Home</a>
+          <a href="https://haritzmedina.com/" class="nav-link">Developer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="policy-header">
+        <div class="policy-badge">Legal Documentation</div>
+        <h1>Privacy Policy</h1>
+        <div class="meta-info">
+          <span><strong>Application:</strong> EPlayer Nova</span> &bull;
+          <span><strong>Developer:</strong> Haritz Medina</span> &bull;
+          <span><strong>Effective Date:</strong> September 29, 2026</span>
+        </div>
+      </div>
+
+      <section>
+        <h2>1. Introduction &amp; Overview</h2>
+        <p>
+          This Privacy Policy governs the use of <strong>EPlayer Nova</strong> (&ldquo;the Application&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), an open-source, cross-platform audio player developed and maintained by <strong>Haritz Medina</strong> (available across Android, Windows, Linux, and Wear OS).
+        </p>
+        <p>
+          We are committed to absolute user privacy. EPlayer Nova is engineered under the principle that your media, listening history, and personal files belong exclusively to you. The application does not include advertising, does not engage in user tracking or profiling, does not collect analytics or device identifiers, and does not sell or distribute personal data to third parties.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Local Data Processing</h2>
+        <p>
+          EPlayer Nova is primarily a local media player. When using the application:
+        </p>
+        <ul>
+          <li>
+            <strong>Audio Files &amp; Metadata:</strong> The application scans folders designated by you on your local storage to index audio tracks, titles, artists, album names, durations, and embedded cover art. This processing occurs 100% locally on your device.
+          </li>
+          <li>
+            <strong>Audio Pre-Analysis:</strong> Visualizer waveform pre-computations (such as beat and frequency analysis) are performed directly on your local hardware and stored in a private local SQLite cache.
+          </li>
+          <li>
+            <strong>No Media Upload:</strong> Your actual music or audio files are <strong>never</strong> transmitted, copied, or uploaded to any cloud server or remote service.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Google Drive Integration &amp; Google User Data</h2>
+        <p>
+          EPlayer Nova includes an optional personal cloud synchronization feature powered by Google Drive. When you explicitly connect your Google Account within the application:
+        </p>
+
+        <h3>3.1. Purpose of Access</h3>
+        <p>
+          Google Drive access is used solely to provide <strong>bi-directional synchronization</strong> and backup of your personal musical curation across your devices (e.g., between your phone, PC, and laptop). The synchronized data comprises:
+        </p>
+        <ul>
+          <li>User-created playlist structures and track ordering.</li>
+          <li>Favorite song markers.</li>
+          <li>Track play counts and recently played timestamps.</li>
+          <li>Portable user preferences (theme preference, UI language).</li>
+          <li>Cached synchronized lyrics text (.lrc).</li>
+        </ul>
+
+        <h3>3.2. Scopes Requested &amp; Access Boundaries</h3>
+        <p>
+          The application requests access strictly restricted to the following OAuth 2.0 scopes:
+        </p>
+        <ul>
+          <li>
+            <code>https://www.googleapis.com/auth/drive.appdata</code> (Recommended &amp; Primary): Allows EPlayer Nova to store configuration and database delta files in the isolated Google Drive <strong>Application Data folder</strong> (<code>spaces=appDataFolder</code>). This storage is hidden from your main Google Drive directory and is completely inaccessible to other third-party applications.
+          </li>
+          <li>
+            <code>https://www.googleapis.com/auth/drive.file</code>: Allows EPlayer Nova to view, create, and manage only the backup files (<code>.epbak</code>) that were explicitly created or opened by EPlayer Nova.
+          </li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-title">
+            <span>🛡️</span> <strong>Strict Access Limitation</strong>
+          </div>
+          <p>
+            EPlayer Nova <strong>CANNOT</strong> access, view, scan, modify, download, or delete any of your personal files, Google Docs, spreadsheets, photos, videos, or folders stored in your Google Drive. Access is strictly confined to files created directly by the application.
+          </p>
+        </div>
+
+        <h3>3.3. Data Retention &amp; Storage</h3>
+        <p>
+          All synchronized data is stored directly in your personal Google Drive account. Authentication tokens (OAuth access and refresh tokens) are securely stored in the private application support directory of your local device and are never exposed or transmitted to any third party. Data remains in your Google Drive until you choose to delete it.
+        </p>
+
+        <h3>3.4. Sharing &amp; Transfer of Google User Data</h3>
+        <p>
+          Information obtained through Google Drive APIs is <strong>never</strong> transferred, sold, rented, or shared with third-party advertising networks, data brokers, or external servers. Data travels strictly between your device and Google's official API servers via encrypted HTTPS connections.
+        </p>
+
+        <h3>3.5. Google API Services User Data Policy Compliance</h3>
+        <div class="callout">
+          <p>
+            <strong>EPlayer Nova&rsquo;s use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</strong>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Third-Party Services (Opt-In Features)</h2>
+        <p>
+          EPlayer Nova includes two optional third-party integrations which only activate upon explicit user interaction or preference:
+        </p>
+        <ul>
+          <li>
+            <strong>LRCLIB (Synchronized Lyrics):</strong> If a track lacks local embedded lyrics, the application can query the public <a href="https://lrclib.net/" target="_blank" rel="noopener">LRCLIB</a> API to fetch synchronized lyrics. The query contains solely the artist and song title. No personal identifiers, IP logs, or account details are shared.
+          </li>
+          <li>
+            <strong>Google Gemini (Android Voice Assistant):</strong> On Android, users may opt-in to an AI voice assistant feature. When you tap the microphone, speech is transcribed locally and the parsed command intent is evaluated. No background audio is recorded.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Data Security</h2>
+        <p>
+          We implement rigorous security practices:
+        </p>
+        <ul>
+          <li>All network communications with Google Drive, Google OAuth, and LRCLIB are encrypted in transit using industry-standard TLS/HTTPS protocols.</li>
+          <li>OAuth authorization codes and refresh tokens are stored in protected operating-system-level app storage on your device.</li>
+          <li>Loopback redirect listeners used on desktop operating systems (Windows and Linux) bind exclusively to the local interface (<code>http://127.0.0.1</code>) and terminate immediately after authorization is complete.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. User Control, Disconnection &amp; Data Deletion</h2>
+        <p>
+          You retain complete control over your data at all times:
+        </p>
+        <ul>
+          <li>
+            <strong>Disconnect within App:</strong> In EPlayer Nova, navigate to <strong>Settings &gt; Backup &amp; Sync</strong> and tap <strong>Disconnect</strong>. This immediately deletes the local credentials, terminates the session, and halts all synchronization.
+          </li>
+          <li>
+            <strong>Revoke via Google Account:</strong> You can revoke EPlayer Nova&rsquo;s access to your Google account at any time by visiting your Google Security Dashboard: <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">https://myaccount.google.com/permissions</a>.
+          </li>
+          <li>
+            <strong>Delete Cloud Data:</strong> You may delete application data stored in Google Drive by opening Google Drive in your browser, going to <em>Settings &gt; Manage Apps</em>, finding <em>EPlayer Nova</em>, and selecting <em>Options &gt; Delete hidden app data</em>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>7. Children&rsquo;s Privacy</h2>
+        <p>
+          EPlayer Nova is a general audience media player and does not knowingly collect, solicit, or store personal information from children under the age of 13 (or under 16 in the European Union).
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Changes to this Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect enhancements in application functionality or regulatory requirements. Any modifications will be posted to this page with an updated &ldquo;Effective Date&rdquo;.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Contact Information</h2>
+        <p>
+          If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact the developer:
+        </p>
+        <ul>
+          <li><strong>Developer:</strong> Haritz Medina</li>
+          <li><strong>Email:</strong> <a href="mailto:haritzmedina@gmail.com">haritzmedina@gmail.com</a></li>
+          <li><strong>Website:</strong> <a href="https://haritzmedina.com/">https://haritzmedina.com/</a></li>
+          <li><strong>Source Code Repository:</strong> <a href="https://github.com/haritzmedina/EPlayerNova" target="_blank" rel="noopener">https://github.com/haritzmedina/EPlayerNova</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div>
+          &copy; 2026 <strong>EPlayer Nova</strong> &bull; Developed by <a href="https://haritzmedina.com/" style="color:var(--text-primary); text-decoration:none;">Haritz Medina</a>
+        </div>
+        <div class="footer-links">
+          <a href="./">Application Home</a>
+          <a href="https://github.com/haritzmedina/EPlayerNova" target="_blank" rel="noopener">Source Code</a>
+          <a href="mailto:haritzmedina@gmail.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
